@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Login from "./components/Login";
 import "./styles.scss";
+
+import Login from "./components/Login";
+import ProtectedRoute from "./ProtectedRoute";
+import BubblePage from "./components/BubblePage";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token") || null);
@@ -12,7 +15,7 @@ function App() {
         <Route exact path="/">
           <Login token={token} setToken={setToken}/>
         </Route>
-        <Route path="/protected" render={()=><div>hi</div>}/>
+        <ProtectedRoute path="/bubble-page" component={BubblePage}/>
         {/* 
           Build a PrivateRoute component that will 
           display BubblePage when you're authenticated 

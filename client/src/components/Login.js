@@ -30,7 +30,7 @@ const Login = props => {
   return (
     <>
       {props.token && 
-        <Redirect to="/protected"/>
+        <Redirect to="/bubble-page"/>
       }
       <h1>Welcome to the Bubble App!</h1>
       <form onSubmit={onSubmit}>
